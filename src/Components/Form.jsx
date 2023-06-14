@@ -1,17 +1,29 @@
-import React from "react";
+import React, {useRef} from "react";
 
 export const Form = () => {
+  const date =useRef()
+  const description =useRef()
+  const category =useRef()
+  const amount =useRef(0)
+
+  function handleSubmit(e){
+  e.preventDefault()
+  //post request
+
+}
+
+
   return (
     <>
      
-      <form className="shadow m-8 border flex-col justify-centre items-center">
-        <div className="flex justify-around">
-          <input type="date" className="border border-gray-900 p-2"/>
-          <input type="text" className="border border-gray-900 p-2"/>
-          <input type="text" className="border border-gray-900 p-2"/>
-          <input type="number" className="border border-gray-900 p-2"/>
+      <form className="shadow m-8 border flex-col justify-centre items-center" onSubmit={handleSubmit} >
+        <div className="flex justify-around w-full m-2 ">
+          <input type="date" ref={date} className="border border-gray-400 p-2 rounded text-center"/>
+          <input type="text" ref={description} placeholder ="Description" className="border border-gray-400 p-2 rounded text-center"/>
+          <input type="text" ref={category} placeholder="Category" className="border border-gray-400 p-2 rounded text-center"/>
+          <input type="number" ref={amount} placeholder="Amount" className="border border-gray-400 p-2 rounded text-center"/>
         </div>
-        <button className="bg-gray-400 py-2 px-4 my-4">Add Transactions</button>
+        <button className="bg-gray-400 py-2 px-4 my-4" type="submit">Add Transactions</button>
       </form>
     </>
   );
